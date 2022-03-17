@@ -8,7 +8,7 @@ bot = SimpleLongPollBot(tokens=config.settings['TOKEN'],
                         group_id=config.settings['VK_GROUP_ID'])
 ia = imdb.IMDb()
 
-@bot.message_handler(bot.regex_filter(r'(?i)(.*?)(фильм|кино|посмотреть)(.*?)'))
+@bot.message_handler(bot.regex_filter(r'(?i)(.*?)(фильм|кино|посмотреть|film|movie|view)(.*?)')) #Английский язык!!
 async def greet(event: SimpleBotEvent) -> str:
     top = ia.get_popular100_movies()
     random.shuffle(top)
